@@ -1,0 +1,6 @@
+ld<gpioTest.o
+test
+ataShow
+ping "10.0.0.100",10
+cd "/ata0/"
+ls

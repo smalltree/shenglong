@@ -1,0 +1,26 @@
+我添加了2个操作EEPROM的函数接口，可用来修改网卡的MAC地址
+
+STATUS sysEtherMacSet(
+	int unit,
+	UINT16 addr0,
+	UINT16 addr1,
+	UINT16 addr2
+)
+
+unit : 对应的网卡编号， 取值 0~3
+addr0, addr1, addr2用来表示MAC地址
+函数功能：将MAC地址写入到对应网卡的EEPROM的起始的6个字节
+
+比如要设置1号网卡的MAC地址为00-34-25-bb-3d-9f
+在shell下输入 sysEtherMacSet(1, 0x3400, 0xbb25, 0x9f3d);
+
+STATUS eepromShow
+    (
+    int    unit
+    )
+
+显示对应网卡EEPROM中的内容
+
+在shell下输入 eepromShow(1);
+
+具体的MAC地址要设成多少， 得等到我们买到MAC地址才能告诉你们

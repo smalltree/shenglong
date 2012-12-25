@@ -1,0 +1,9 @@
+all: cacheR4kALib.o  cacheR4kLib.o
+		armips -ruv C:\Tornado2.2\target\lib\mips\MIPS64\commonle_lsn2e\libarch.a cacheR4kALib.o  cacheR4kLib.o
+clean:
+		rm -f *.o
+cacheR4kALib.o:cacheR4kALib.s
+		ccmips -G 0 -mno-branch-likely -mips3 -EL -ansi -fno-builtin -O2 -I/h   -I. -IC:\Tornado2.2\target\config\all -IC:\Tornado2.2\target/h -IC:\Tornado2.2\target/src/config -IC:\Tornado2.2\target/src/drv -DCPU=MIPS64 -DTOOL_FAMILY=gnu -DTOOL=gnule -DMIPSEL   -P -xassembler-with-cpp -DMIPSEL -c -o cacheR4kALib.o cacheR4kALib.s
+
+cacheR4kLib.o:cacheR4kLib.c
+		ccmips -c -G 0 -mno-branch-likely -mips3 -EL -ansi -fno-builtin -O2 -Wall -I/h -I. -IC:\Tornado2.2\target\config\all -IC:\Tornado2.2\target/h -IC:\Tornado2.2\target/src/config -IC:\Tornado2.2\target/src/drv -DCPU=MIPS64 -DTOOL_FAMILY=gnu -DTOOL=gnule -DMIPSEL   -c -o cacheR4kLib.o cacheR4kLib.c
